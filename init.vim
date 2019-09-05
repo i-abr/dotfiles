@@ -17,7 +17,7 @@ Plug 'davidhalter/jedi-vim'
 Plug 'danilo-augusto/vim-afterglow'
 Plug 'sheerun/vim-polyglot'
 "Plug 'dracula/vim'
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 
