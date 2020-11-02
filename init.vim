@@ -1,8 +1,11 @@
 call plug#begin('~/.config/nvim/bunble')
 "Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins' }
-"Plug 'Valloric/YouCompleteMe'
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-" Plug 'ajh17/VimCompletesMe'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'HansPinckaers/ncm2-jedi'
+
 Plug 'scrooloose/nerdtree'
 Plug 'ayu-theme/ayu-vim'
 Plug 'rakr/vim-one'
@@ -12,17 +15,30 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'honza/vim-snippets'
 Plug 'bling/vim-airline'
 Plug 'jiangmiao/auto-pairs'
-Plug 'lervag/vimtex'
-Plug 'davidhalter/jedi-vim'
+"Plug 'lervag/vimtex'
+"Plug 'davidhalter/jedi-vim'
 Plug 'danilo-augusto/vim-afterglow'
 Plug 'sheerun/vim-polyglot'
 "Plug 'dracula/vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 call plug#end()
 
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
+
+
+let g:jedi#auto_initialization = 1
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#smart_auto_mappings = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#completions_command = ""
+let g:jedi#show_call_signatures = "1"
 
 "let g:deoplete#enable_at_startup=1
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
 
 
 " simple stuff
